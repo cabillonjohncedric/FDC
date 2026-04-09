@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Site Under Construction</title>
+  <style>
+    /* Page reset & layout */
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent:#ffd166;
+      --muted:#94a3b8;
+    }
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
+    body{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: radial-gradient(1200px 700px at 10% 10%, rgba(255,209,102,0.06), transparent),
+                  radial-gradient(900px 500px at 90% 90%, rgba(61,169,255,0.04), transparent),
+                  var(--bg);
+      color: #e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:20px;
+    }
+
+    /* Card */
+    .card{
+      width:100%;
+      max-width:880px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.04);
+      border-radius:14px;
+      padding:36px;
+      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+      display:grid;
+      grid-template-columns: 180px 1fr;
+      gap:28px;
+      align-items:center;
+    }
+
+    /* Illustration (SVG) */
+    .illustration{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .illustration svg{width:140px;height:140px;display:block;}
+
+    /* Content */
+    h1{
+      margin:0 0 8px 0;
+      font-size:28px;
+      letter-spacing:-0.02em;
+    }
+    p.lead{
+      margin:0 0 18px 0;
+      color:var(--muted);
+      line-height:1.45;
+    }
+
+    /* Progress bar */
+    .bar-wrap{
+      background:rgba(255,255,255,0.03);
+      border-radius:999px;
+      padding:6px;
+      width:100%;
+      max-width:520px;
+      overflow:hidden;
+      margin-bottom:18px;
+    }
+    .bar{
+      height:12px;
+      width:0%;
+      border-radius:999px;
+      background: linear-gradient(90deg, var(--accent), #ff8a5b);
+      box-shadow: 0 4px 18px rgba(255,130,50,0.14) inset;
+      animation: filling 3s ease-in-out forwards;
+    }
+    @keyframes filling{
+      0%{ width:0% }
+      40%{ width:46% }
+      65%{ width:72% }
+      90%{ width:92% }
+      100%{ width:96% }
+    }
+
+    /* Meta row */
+    .meta{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      flex-wrap:wrap;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .meta .tag{
+      background: rgba(255,255,255,0.02);
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.02);
+    }
+
+    /* Small screens */
+    @media (max-width:640px){
+      .card{ grid-template-columns: 1fr; text-align:center; padding:26px; gap:18px;}
+      .illustration{ order:-1; }
+    }
+  </style>
+</head>
+<body>
+  <main class="card" role="main" aria-labelledby="page-title">
+    <div class="illustration" aria-hidden="true">
+      <!-- Simple construction SVG -->
+      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Under construction icon">
+        <defs>
+          <linearGradient id="g" x1="0" x2="1">
+            <stop offset="0" stop-color="#ffd166"/>
+            <stop offset="1" stop-color="#ff8a5b"/>
+          </linearGradient>
+        </defs>
+        <rect x="6" y="70" width="108" height="12" rx="3" fill="#0b1220" opacity="0.7"/>
+        <g transform="translate(18,12)">
+          <path d="M6 60 L90 60 L90 54 L6 54 Z" fill="#0b1220"/>
+          <rect x="6" y="12" width="18" height="48" rx="2" fill="#101826"/>
+          <rect x="36" y="6" width="18" height="54" rx="2" fill="#101826"/>
+          <rect x="66" y="0" width="18" height="60" rx="2" fill="#101826"/>
+          <path d="M0 70 L96 70 L96 66 L0 66 Z" fill="url(#g)"/>
+          <!-- Hammer -->
+          <g transform="translate(6,6) rotate(-10 12 12)">
+            <rect x="2" y="34" width="6" height="22" rx="2" fill="#6b4721"/>
+            <rect x="-2" y="26" width="18" height="10" rx="2" fill="#3b3f46"/>
+            <rect x="-8" y="22" width="8" height="6" rx="1" fill="#ffd166"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <div>
+      <h1 id="page-title">We're building something great</h1>
+      <p class="lead">Thanks for stopping by — this page is under construction. We're working hard to bring you a fresh experience. Come back soon!</p>
+
+      <div class="bar-wrap" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="96">
+        <div class="bar"></div>
+      </div>
+
+      <div class="meta" aria-hidden="false">
+        <div class="tag">Estimated progress: <strong style="margin-left:6px;color:var(--accent)">96%</strong></div>
+        <div class="tag">Status: <strong style="margin-left:6px">Under construction</strong></div>
+        <div class="tag">Contact: <strong style="margin-left:6px">admin@example.com</strong></div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
